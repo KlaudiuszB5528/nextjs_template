@@ -15,7 +15,16 @@
 
 ## How to use:
 
-1. Clone the repository
+1. Clone the repository and remove origin and set new origin with your remote repository URL
+
+   ```bash
+   git https://github.com/KlaudiuszB5528/nextjs_template new-project-name
+   cd new-project-name  # Navigate into the new project directory
+   git remote remove origin  # Remove the default remote
+   git init  # Initialize a new Git repository
+   git remote add origin https://<your_remote_repository_url>
+   ```
+
 2. Run
 
 ```bash
