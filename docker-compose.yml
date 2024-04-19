@@ -12,9 +12,9 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
 
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 3000:3000
