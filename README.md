@@ -25,16 +25,21 @@ pnpm install
 ```
 
 3. Update the .env file with your secrets
-4. Run docker compose to start the database
+4. Run docker compose to start the database(PostgreSQL)
+
+### Note: Make sure you have Docker installed on your machine
+
+#### The frontend is running on port 3000 and the database is running on port 5432 by default (frontend part is commented out in the docker-compose file, uncomment it if you want to run the frontend in a container as well)
 
 ```bash
 docker-compose up -d
 ```
 
-5. Run the migrations
+5. For local development, run the following command to generate the Prisma client and push the schema to the database
 
 ```bash
-npx prisma migrate dev
+npx prisma generate
+npx prisma db push
 ```
 
 6. Run the project
