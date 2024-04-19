@@ -7,6 +7,7 @@
 - [x] Prettier
 - [x] Prisma
 - [x] NextAuth.js
+- [x] NextAuth middleware (base configuration - only dashboard route is protected)
 - [x] TailwindCSS
 - [x] Shadcn
 - [x] Playwright
