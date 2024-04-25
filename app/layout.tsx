@@ -2,7 +2,9 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/providers/Theme";
 import type { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { ReactNode } from "react";
 
 const fontSans = FontSans({
@@ -15,9 +17,15 @@ export const metadata: Metadata = {
   description: "My site description",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head />
       <body
         className={cn(
@@ -25,7 +33,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           fontSans.variable,
         )}
       >
-        {children}
+        <NextIntlClientProvider messages={useMessages()}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

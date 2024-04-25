@@ -8,6 +8,7 @@
 - [x] Prisma
 - [x] NextAuth.js
 - [x] NextAuth middleware (base configuration - only dashboard route is protected)
+- [x] Next-intl
 - [x] Swagger UI for API documentation
 - [x] TailwindCSS
 - [x] Shadcn
