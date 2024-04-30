@@ -2,6 +2,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import { NextAuthProvider } from "@/providers/NextAuth";
 import { ThemeProvider } from "@/providers/Theme";
 import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
@@ -34,14 +35,16 @@ export default function RootLayout({
         )}
       >
         <NextIntlClientProvider messages={useMessages()}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          <NextAuthProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </NextAuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
